@@ -1,42 +1,55 @@
 let canvasWidth = 1280;
 let canvasHeight = 566;
-let i = 0;
-let floorHeight = canvasHeight - 100;
-let bounce = false;
+let ballYPosition = 0;
+let floorHeight = canvasHeight - 25;
 let velocity = 0;
 let gravity = 0.5;
+let bounceThreshold = 1;
 
 function setup() {
   createCanvas(canvasWidth, canvasHeight);
 }
 
+// Drop the ball again
 function dropBall() {
-  i = 0;
+  ballYPosition = 0;
+}
+
+// Handle key presses
+function keyPressed() {
+  if (key === "ArrowUp") {
+    velocity = velocity - 10;
+  }
+  if (key === "ArrowDown") {
+    velocity = velocity + 10;
+  }
 }
 
 function draw() {
-  background('#222');
+  background('#000');
 
   // Apply gravity
   velocity += gravity;
-  i += velocity;
+  ballYPosition += velocity;
 
   // Check for collision with the floor
-  if (i > floorHeight - 50) {
-    i = floorHeight - 50;
-    velocity *= -0.9; // Reverse velocity and apply damping
+  if (ballYPosition > floorHeight - 50) {
+    ballYPosition = floorHeight - 50;
+    // Reverse velocity and apply damping
+    if (Math.abs(velocity) > bounceThreshold) {
+      let bounceSound = new Audio('content/audio/ball.mp3');
+      bounceSound.play();
+      console.log('bounce');
+    }
+    velocity *= -0.9;
   }
 
   // Draw the ball
   fill('#f00');
-  ellipse(canvasWidth / 2, i, 100, 100);
+  ellipse(canvasWidth / 2, ballYPosition, 100, 100);
   noStroke();
 
   // Draw the floor
-  fill('#fff');
+  fill('#444');
   rect(0, floorHeight, canvasWidth, 100);
-}
-
-function canvasResized() {
-  resizeCanvas(canvasWidth, canvasHeight);
 }

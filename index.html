@@ -4,16 +4,19 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Sketch</title>
+    <title>Ball drop</title>
 
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="content/css/style.css">
 
     <script src="libraries/p5.min.js"></script>
     <script src="libraries/p5.sound.min.js"></script>
   </head>
 
   <body>
-    <input type="button" value="Drop ball again" onclick="dropBall();">
+    <div id="info">
+      <input type="button" value="Drop ball again" onclick="dropBall();">
+      <p>Use the arrow keys to add up- or downwards velocity to the ball.</p>
+    </div>
     <script src="sketch.js"></script>
   </body>
 </html>
