@@ -8,6 +8,7 @@ canvas {
   display: block;
 }
 
+
 #info {
   position: absolute;
   margin: 10px;
@@ -15,8 +16,13 @@ canvas {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 #stats {
-  font-size: x-large;
+  font-size: larger;
+  border: #fff 5px solid;
+  border-radius: 5px;
+  padding: 5px;
+  width: 250px;
+
 }
 input[type="text"] {
-  width: 100px;
+  width: 75px;
 }
