@@ -4,7 +4,7 @@ let ballYPosition = 0;
 let floorHeight;
 let velocity = 0;
 let gravity = 0.5;
-let bounceThreshold = 1;
+let bounceThreshold = 2;
 
 function setup() {
   canvasWidth = windowWidth;
