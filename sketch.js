@@ -1,12 +1,15 @@
-let canvasWidth = 1280;
-let canvasHeight = 566;
+let canvasWidth;
+let canvasHeight;
 let ballYPosition = 0;
-let floorHeight = canvasHeight - 25;
+let floorHeight;
 let velocity = 0;
 let gravity = 0.5;
 let bounceThreshold = 1;
 
 function setup() {
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight;
+  floorHeight = canvasHeight - 25;
   createCanvas(canvasWidth, canvasHeight);
 }
 
@@ -52,4 +55,11 @@ function draw() {
   // Draw the floor
   fill('#444');
   rect(0, floorHeight, canvasWidth, 100);
+}
+
+function windowResized() {
+  canvasWidth = windowWidth;
+  canvasHeight = windowHeight;
+  floorHeight = canvasHeight - 25;
+  resizeCanvas(canvasWidth, canvasHeight);
 }
