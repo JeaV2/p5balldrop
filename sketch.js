@@ -11,6 +11,14 @@ function setup() {
   canvasHeight = windowHeight;
   floorHeight = canvasHeight - 25;
   createCanvas(canvasWidth, canvasHeight);
+
+  // Add event listener for velocity input
+  document.getElementById('velocityInput').addEventListener('input', function(event) {
+    velocity = parseFloat(event.target.value) || 0;
+  });
+  document.getElementById('gravityInput').addEventListener('input', function(event) {
+    gravity = parseFloat(event.target.value) /10 || 0.5;
+  });
 }
 
 // Drop the ball again
@@ -30,7 +38,6 @@ function keyPressed() {
 
 function draw() {
   background('#000');
-
   // Apply gravity
   velocity += gravity;
   ballYPosition += velocity;
@@ -55,6 +62,14 @@ function draw() {
   // Draw the floor
   fill('#444');
   rect(0, floorHeight, canvasWidth, 100);
+  // stats
+  velocityStat = document.getElementById('velocity').innerHTML = Math.round(velocity * 1000)/1000;
+  gravityStat = document.getElementById('gravity').innerHTML = gravity;
+  ballYPositionStat = document.getElementById('ballYPosition').innerHTML = Math.round((canvasHeight - ballYPosition - 75) * 100)/100;
+  canvasHeightStat = document.getElementById('canvasHeight').innerHTML = canvasHeight;
+  canvasWidthStat = document.getElementById('canvasWidth').innerHTML = canvasWidth;
+  floorHeightStat = document.getElementById('floorHeight').innerHTML = canvasHeight - floorHeight;
+
 }
 
 function windowResized() {

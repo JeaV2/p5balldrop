@@ -16,6 +16,17 @@
     <div id="info">
       <input type="button" value="Drop ball again" onclick="dropBall();">
       <p>Use the arrow keys to add up- or downwards velocity to the ball.</p>
+      <div id="stats">
+        <p>
+          Velocity: <span id="velocity">0</span> <br>
+          <input type="number" name="velocity" id="velocityInput" placeholder="Edit Velocity"> <br>
+          Gravity: <span id="gravity">0</span> <br>
+          <input type="number" name="gravity" id="gravityInput" placeholder="Edit gravity (1=0.1)" value="5"> <br>
+          BallYPositon: <span id="ballYPosition">0</span> <br>
+          Canvas: <span id="canvasWidth">0</span> x </span><span id="canvasHeight">0</span> <br>
+          Floor height: <span id="floorHeight">0</span>
+        </p>
+      </div>
     </div>
     <script src="sketch.js"></script>
   </body>

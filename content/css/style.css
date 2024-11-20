@@ -14,3 +14,9 @@ canvas {
   color: #fff;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+#stats {
+  font-size: x-large;
+}
+input[type="text"] {
+  width: 100px;
+}
