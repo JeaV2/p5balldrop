@@ -17,7 +17,7 @@ function setup() {
     velocity = parseFloat(event.target.value) || 0;
   });
   document.getElementById('gravityInput').addEventListener('input', function(event) {
-    gravity = parseFloat(event.target.value) /10 || 0.5;
+    gravity = parseFloat(event.target.value) /10 || 0;
   });
 }
 
